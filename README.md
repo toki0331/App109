@@ -1,24 +1,34 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 環境構築手順
 
-Things you may want to cover:
+### 0.事前準備
+このレポジトリをGitCloneしておく
+以降、docker-compose.ymlファイルの置いてあるディレクトリで実行する。
 
-* Ruby version
+### 1.Railsのコンテナを起動してRailsのプロジェクトを作成する
+```
+$ docker-compose run web rails new . --force --database=mysql
+```
 
-* System dependencies
+### 2.Railsイメージのビルド実行コマンド
+```
+$ docker-compose build
+```
 
-* Configuration
+### 3.config/database.ymlの修正
+vimか何かで
+```
+vim config/database.yml
+```
 
-* Database creation
+- default内の項目を修正する
+password: password
+host: db
 
-* Database initialization
+### 4.コンテナをデタッチドモード（バックグラウンド）で実行する
+$ docker-compose up -d
 
-* How to run the test suite
+### 5.RailsのコンテナでDB作成のタスクを実行する
+$ docker-compose run web bundle exec rake db:create
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 6.localhost:3000でアクセスする
