@@ -1,21 +1,21 @@
 
-## 環境構築手順
+# 環境構築手順
 
-### 0.事前準備
+## 0.事前準備
 このレポジトリをGitCloneしておく
 以降、docker-compose.ymlファイルの置いてあるディレクトリで実行する。
 
-### 1.Railsのコンテナを起動してRailsのプロジェクトを作成する
+## 1.Railsのコンテナを起動してRailsのプロジェクトを作成する
 ```
 $ docker-compose run web rails new . --force --database=mysql
 ```
 
-### 2.Railsイメージのビルド実行コマンド
+## 2.Railsイメージのビルド実行コマンド
 ```
 $ docker-compose build
 ```
 
-### 3.config/database.ymlの修正
+## 3.config/database.ymlの修正
 vimか何かで
 ```
 vim config/database.yml
@@ -25,21 +25,21 @@ vim config/database.yml
 password: password
 host: db
 
-### 4.コンテナをデタッチドモード（バックグラウンド）で実行する
+## 4.コンテナをデタッチドモード（バックグラウンド）で実行する
 ```
 $ docker-compose up -d
 ```
 
-### 5.RailsのコンテナでDB作成のタスクを実行する
+## 5.RailsのコンテナでDB作成のタスクを実行する
 ```
 $ docker-compose run web bundle exec rake db:create
 ```
 
-### 6.localhost:3000でアクセスする
+## 6.localhost:3000でアクセスする
 
-### 番外編.なんかアクセスできない時
+# 番外編.なんかアクセスできない時
 
-$ docker-compose up で↓みたいなログが出た場合。
+## $ docker-compose up で↓みたいなログが出た場合。
 
 ```
 web_1  | => Booting Puma
@@ -56,3 +56,12 @@ app109_web_1 exited with code 1
 $rm tmp/pids/server.pid
 ```
 ファイル削除後、再度　compose up　して動作確認する
+
+## ActiveRecord::PendingMigrationErrorが出た場合
+
+Migrationsが未解決なのでmigrateしろとのこと。
+bundle exec rake db:migrateすればいいけど、Dockerの場合は以下のコマンドで
+
+```
+docker-compose run web bundle exec rake db:migrate
+```
