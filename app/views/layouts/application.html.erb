@@ -3,12 +3,14 @@
   <head>
     <title>App</title>
     <%= csrf_meta_tags %>
-    <a>ベーーーーーー おっぱい大事   おっす</a>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <div class="container">
     <%= yield %>
   </body>
+  </div>
 </html>
