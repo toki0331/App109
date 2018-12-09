@@ -1,7 +1,12 @@
 <div class="d-flex align-items-center">
   <h1>掲示板一覧</h1>
   <div class="ml-auto boards__linkBox">
-    <a class="btn btn-outline-dark" href="/boards/new">新規作成</a>
+    <% if user_signed_in? %>
+      <a class="btn btn-outline-dark" href="/boards/new">新規作成</a>
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-outline-dark' %>
+      <%= link_to 'サインアップ', new_user_registration_path, class: 'btn btn-outline-dark' %>
+    <% end %>
   </div>
 </div>
 <table class="table table-hover boards__table">
