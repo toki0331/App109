@@ -3,6 +3,7 @@
   <div class="ml-auto boards__linkBox">
     <% if user_signed_in? %>
       <a class="btn btn-outline-dark" href="/boards/new">新規作成</a>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark' %>
     <% else %>
       <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-outline-dark' %>
       <%= link_to 'サインアップ', new_user_registration_path, class: 'btn btn-outline-dark' %>
