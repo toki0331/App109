@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @boards = Board.all
     # @idhen = Board.find_by(id: paramas[:id])
