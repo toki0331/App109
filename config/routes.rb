@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get 'boards/new', to: "boards#new"
   get 'boards/:id/edit', to: "boards#edit"
   post 'boards/create'
-  post 'boards/:id/update', to: "boards#update" 
+  post 'boards/:id/destroy', to: "boards#destroy"
 
 end
