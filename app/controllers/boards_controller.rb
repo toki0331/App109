@@ -42,7 +42,9 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-
+    @board = Board.find_by(id: params[:id])
+    @board.destroy
+    redirect_to("/boards/index")
   end
 
   private
