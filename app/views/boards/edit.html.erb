@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <%= form_for(@board_edit, url:{controller: :boards, action: :update},maltipart: true) do |form| %>
+        <div class="field">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: "form-control" , placeholder: @board.name , name: "name"%>
+        </div>
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title, class: "form-control" , placeholder:  @board.title , name: "title"%>
+        </div>
+        <div class="field">
+          <%= form.label :body %>
+          <%= form.text_area :body, class: "form-control" , placeholder:  @board.body , name: "body" %>
+
+        </div>
+
+        <div class="action" style="padding-top:20px;">
+          <%= form.submit class: "btn btn-outline-dark" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

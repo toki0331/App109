@@ -4,5 +4,8 @@ Rails.application.routes.draw do
 
   get 'boards/index', as: :boards
   get 'boards/new', to: "boards#new"
+  get 'boards/:id/edit', to: "boards#edit"
   post 'boards/create'
+  post 'boards/:id/update', to: "boards#update" 
+
 end

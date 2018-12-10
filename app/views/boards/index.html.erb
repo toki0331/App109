@@ -13,17 +13,22 @@
       <th>内容</th>
       <th>作成日時</th>
       <th>更新日時</th>
+      <th>編集ボタン</th>
+      <th>削除ボタン</th>
     </tr>
   </thead>
   <tbody>
     <% @boards.each do |board| %>
     <tr>
+      <%=  idhen = board.id %>
       <th><%= board.id %></th>
       <td><%= board.title %></td>
       <td><%= board.name %></td>
       <td><%= board.body %></td>
       <td><%= board.created_at %></td>
       <td><%= board.updated_at %></td>
+      <td><%= link_to("編集","/boards/#{board.id}/edit") %></td>
+      <!-- <td><%= board.updated_at %></td> --><td>消し消し</td>
     </tr>
     <% end %>
   </tbody>
