@@ -6,14 +6,11 @@ Rails.application.routes.draw do
   get 'boards/new', to: "boards#new"
   get 'boards/:id/edit', to: "boards#edit"
   post 'boards/create'
-<<<<<<< HEAD
+  post 'boards/:id/update', to: "boards#update"
   post 'boards/:id/destroy', to: "boards#destroy"
-
-=======
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
->>>>>>> 6f704fcbfe9b12a3491e72edda2a4c40b5095d9b
 end
