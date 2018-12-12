@@ -36,7 +36,7 @@ class BoardsController < ApplicationController
     @board_old.body = params[:body]
 
     if @board_old.save
-      flash[:notice] = "Created!!"
+      flash[:notice] = "Update!!"
       redirect_to("/boards/index")
     else
       render("/boards/new")
@@ -46,6 +46,7 @@ class BoardsController < ApplicationController
   def destroy
     @board = Board.find_by(id: params[:id])
     @board.destroy
+    flash[:notice] = "Destroy!!"
     redirect_to("/boards/index")
   end
 
