@@ -65,3 +65,20 @@ bundle exec rake db:migrateすればいいけど、Dockerの場合は以下の�
 ```
 docker-compose run web bundle exec rake db:migrate
 ```
+
+##なぜかエラーが出ているときにとりあえずやること。
+(自分の時は、rake がないエラーでした。)
+
+とりあえず
+
+```
+$ docker-compose stop
+```
+```
+$ docker-compose build
+```
+```
+$ docker-compose run web bundle exec rake db:PendingMigrationError
+```
+
+すれば解決するかも！！

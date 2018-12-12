@@ -28,6 +28,7 @@ test:
   <<: *default
   database: app_test
 
+
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -48,7 +49,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: app_production
-  username: app
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+ <<: *default
+ adapter: postgresql
+ database: db/production.postgresql
+ url: <%= ENV[‘DATABASE_URL’] %>
+ # 環境変数DATABASE_URLを参照するよう設定する。
