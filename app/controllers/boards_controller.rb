@@ -25,7 +25,7 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    @board_edit = Board.new
+    # @board_edit = Board.new
     @board = Board.find_by(id: params[:id])
   end
 
@@ -37,9 +37,9 @@ class BoardsController < ApplicationController
 
     if @board_old.save
       flash[:notice] = "Update!!"
-      redirect_to("/boards/index")
+      redirect_to("/boards")
     else
-      render("/boards/new")
+      render edit_board_path
     end
   end
 
@@ -47,7 +47,7 @@ class BoardsController < ApplicationController
     @board = Board.find_by(id: params[:id])
     @board.destroy
     flash[:notice] = "Destroy!!"
-    redirect_to("/boards/index")
+    redirect_to("/boards")
   end
 
   private

@@ -34,8 +34,8 @@
       <td><%= board.body %></td>
       <td><%= board.created_at %></td>
       <td><%= board.updated_at %></td>
-      <td><%= link_to("編集","/boards/#{board.id}/edit") %></td>
-      <td><%= link_to("削除","/boards/#{board.id}/destroy", {method:"post"}) %></td>
+      <td><%= link_to("編集", "/boards/#{board.id}/edit") %></td>
+      <td><%= link_to("削除", "/boards/#{board.id}", { method: :delete }) %></td>
     </tr>
     <% end %>
   </tbody>
