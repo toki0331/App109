@@ -24,10 +24,6 @@ gem 'devise', '4.5.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-
-  gem 'sqlite3' , groups: %w(test development), require:false
-  gem 'pg' ,'~> 0.20.0', groups: %w(production), require: false
-
 end
 
 group :development do
@@ -43,5 +39,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
- gem 'pg', '~>0.20.0'
+ gem 'rails_12factor'
 end
+
+gem 'sqlite3' , groups: %w(test development), require:false
+gem 'pg' ,' 0.20.0', groups: %w(production), require: false
