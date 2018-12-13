@@ -52,5 +52,5 @@ production:
  <<: *default
  adapter: postgresql
  database: db/production.postgresql
- url: <%= ENV[‘DATABASE_URL’] %>
+ url: <%= ENV[‘postgres://cidfonrzsstkse:c581631dff72cbb5115714e855eec2682846e4827cdeee09e79293526e60619e@ec2-54-243-150-10.compute-1.amazonaws.com:5432/d5erihovkqgvo3’] %>
  # 環境変数DATABASE_URLを参照するよう設定する。
