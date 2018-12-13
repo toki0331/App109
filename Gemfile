@@ -24,7 +24,10 @@ gem 'devise', '4.5.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
+
+  gem 'sqlite3' , groups: %w(test development), require:false
+  gem 'pg' , groups: %w(production), require: false
+
 end
 
 group :development do
