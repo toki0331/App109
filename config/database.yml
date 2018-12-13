@@ -53,6 +53,4 @@ production:
  <<: *default
  adapter: postgresql
  database: app109.postgresql
- url: <%= ENV[‘postgres://cidfonrzsstkse:c581631dff72cbb5115714e855eec2682846e4827cdeee09e79293526e60619e@ec2-54-243-150-10.compute-1.amazonaws.com:5432/d5erihovkqgvo3’] %>
- secret_key_base: <%= ENV["ea668978c225ab0a420d4bd6cba9b06ccd8d4034c02999fbde85696b5816b820c1a8b0dc24b5a4ffa7793945a1901d2c6aa5a03a44741d3889cd4b5e6b919eab"] %>
  # 環境変数DATABASE_URLを参照するよう設定する。
