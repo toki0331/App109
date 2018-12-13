@@ -26,7 +26,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'sqlite3' , groups: %w(test development), require:false
-  gem 'pg' , groups: %w(production), require: false
+  gem 'pg' ,'~> 0.20.0', groups: %w(production), require: false
 
 end
 
@@ -43,5 +43,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
- gem 'pg'
+ gem 'pg', '~>0.20.0'
 end
