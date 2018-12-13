@@ -10,23 +10,24 @@
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   pool: 5
   username: root
   password: password
   host: db
+  timeout: 5000
 
 development:
   <<: *default
-  database: app_development
+  database: app109_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: app_test
+  database: app109_test
 
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -51,6 +52,7 @@ test:
 production:
  <<: *default
  adapter: postgresql
- database: db/production.postgresql
+ database: app109.postgresql
  url: <%= ENV[‘postgres://cidfonrzsstkse:c581631dff72cbb5115714e855eec2682846e4827cdeee09e79293526e60619e@ec2-54-243-150-10.compute-1.amazonaws.com:5432/d5erihovkqgvo3’] %>
+ secret_key_base: <%= ENV["ea668978c225ab0a420d4bd6cba9b06ccd8d4034c02999fbde85696b5816b820c1a8b0dc24b5a4ffa7793945a1901d2c6aa5a03a44741d3889cd4b5e6b919eab"] %>
  # 環境変数DATABASE_URLを参照するよう設定する。
