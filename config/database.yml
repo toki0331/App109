@@ -50,7 +50,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
- <<: *default
- adapter: postgresql
- database: app109.postgresql
- # 環境変数DATABASE_URLを参照するよう設定する。
+#半角スペース２個分の空白を開ける
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

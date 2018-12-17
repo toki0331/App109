@@ -43,4 +43,4 @@ group :production do
 end
 
 gem 'sqlite3' , groups: %w(test development), require:false
-gem 'pg' ,'~> 0.20.0', groups: %w(production), require: false
+gem 'pg' ,'~> 0.19.0', group: :production, require: false
